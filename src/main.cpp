@@ -1,18 +1,19 @@
 #include <iostream>
 
 
-void fibonacci(int n) {
-  int a = 0, b = 1, c = 0;
 
-  for (int i = 0; i < n; i++) {
-    std::cout << c << '\n';
+int main(void) {
+  typedef char custom_type;
 
-    c = a + b;
-    a = b;
-    b = c;
-  }
-}
+  custom_type n = -1;
 
-int main() {
-  fibonacci(20);
+  for (
+    custom_type i = 0, mask = (custom_type)(1 << (sizeof(custom_type) * 8 - 1));
+    i < (custom_type)sizeof(custom_type) * 8;
+    mask = (custom_type)1 << (sizeof(custom_type) * 8 - 1 - ++i)
+    ) {
+    if (i && i % 4 == 0)
+      putchar(' ');
+    putchar(mask & n ? '1' : '0');
+  } putchar('\n');
 }
