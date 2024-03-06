@@ -26,7 +26,7 @@ OBJ := $(SRC:.cpp=.o)
 all: compile link run
 
 compile: $(OBJ)
-	
+
 %.o: %.c
 	$(CXX) -o $@ -c $< $(CXXFLAGS)
 
